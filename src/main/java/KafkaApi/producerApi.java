@@ -6,8 +6,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 public class producerApi {
     public static void main(String[] args){
-        KafkaUtil kafkaUtil=new KafkaUtil();
-        KafkaProducer<String, String> producer = kafkaUtil.getProducer();
+        KafkaProducer<String, String> producer = KafkaUtil.getProducer();
         for (int i=0;i<100000000;i++){
 //            发送数据
 //            ("second",0，key,"");指定分区

@@ -9,12 +9,11 @@ import org.apache.kafka.clients.producer.{ProducerConfig, ProducerRecord}
  */
 object scala_PartitionProducerApi {
   def main(args: Array[String]): Unit = {
-    val kafkaUtil = new KafkaUtil
-    val props = kafkaUtil.getProducerProperties
+    val props = KafkaUtil.getProducerProperties
     //添加自定义分区class
     props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, "KafkaApi.CustomPartitioner")
     //获取KafkaProducer
-    val producer = kafkaUtil.getProducer(props)
+    val producer = KafkaUtil.getProducer(props)
     for (i <- 0 until 100) {
       producer.send(new ProducerRecord[String, String]("topic01", i + "", i + ""))
     }

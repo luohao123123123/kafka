@@ -5,8 +5,7 @@ import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 
 object scala_Producer {
   def main(args: Array[String]): Unit = {
-    val kafkaUtil = new KafkaUtil
-    val producer: KafkaProducer[String, String] = kafkaUtil.getProducer
+    val producer: KafkaProducer[String, String] = KafkaUtil.getProducer
     for (i <- 0 until 100000000) {
       //            发送数据
       //            ("second",0，key,"");指定分区

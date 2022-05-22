@@ -14,8 +14,7 @@ import java.util.List;
 public class consumerApi {
     public static void main(String[] args) {
         //创建kafka连接
-       KafkaUtil kafkaUtil = new KafkaUtil();
-       KafkaConsumer<String, String> consumer = kafkaUtil.getConsumer();
+       KafkaConsumer<String, String> consumer = KafkaUtil.getConsumer();
 
 
         // 消费者订阅的topic, 可同时订阅多个

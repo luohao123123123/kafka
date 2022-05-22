@@ -23,8 +23,7 @@ object Streaming_Kafka {
     sc.checkpoint("E:\\kafka\\checkpoint")
 
     //获取连接Kafka的参数
-    val kafkaUtil=new KafkaUtil
-    val kafkaParams = kafkaUtil.getStreaming_KafkaConsumer
+    val kafkaParams = KafkaUtil.getStreaming_KafkaConsumer
     //Topic
     val topics = Array("topic01")
 

@@ -21,12 +21,11 @@ object Spark_PartitionProducerApi {
     sc.makeRDD(array)
       .foreachPartition(x=>{
         //todo:Kafka连接
-        val kafkaUtil = new KafkaUtil
-        val props = kafkaUtil.getProducerProperties
+        val props = KafkaUtil.getProducerProperties
         //添加自定义分区class
         props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, "KafkaApi.CustomPartitioner")
         //获取KafkaProducer
-        val producer  = kafkaUtil.getProducer(props)
+        val producer  = KafkaUtil.getProducer(props)
         producer.send(new ProducerRecord[String, String]("topic01", x.toString, x.toString))
         producer.close()
     })
